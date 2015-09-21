@@ -1,0 +1,13 @@
+web:
+  build: .
+  links:
+    - mongodb
+  ports:
+    - "5000:80"
+mongodb:
+  image: mongodb
+  ports:
+    - "27017:27017"
+    - "28017:28017"
+  environment:
+    - AUTH=no
