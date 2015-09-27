@@ -4,7 +4,7 @@ Created on Sep 21, 2015
 @author: fteychene
 '''
 
-import hooks
+from result import hooks
 
 class ResultConfiguration(object):
     
@@ -17,7 +17,7 @@ class ResultConfiguration(object):
         return {
             'schema' : ResultConfiguration.schema(),
             'datasource' : ResultConfiguration.datasource()
-    }
+            }
         
     @staticmethod
     def datasource():

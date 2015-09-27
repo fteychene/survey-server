@@ -1,2 +1,3 @@
-app-version
-eve>=0.5.3
+eve
+urllib3
+gunicorn
