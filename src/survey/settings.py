@@ -33,9 +33,9 @@ class SurveyConfiguration(object):
                 'schema':{
                     'type': 'dict',
                     'schema': {
-#                         'number' : {
-#                             'type':'integer',
-#                             'required':True},
+                        'number' : {
+                            'type':'integer',
+                            'required':True},
                         'text': {
                             'type':'string',
                             'minlength': 1},

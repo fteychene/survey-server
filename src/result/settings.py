@@ -16,7 +16,9 @@ class ResultConfiguration(object):
     def domain():
         return {
             'schema' : ResultConfiguration.schema(),
-            'datasource' : ResultConfiguration.datasource()
+            'datasource' : ResultConfiguration.datasource(),
+            'resource_methods' : ['GET', 'POST'],
+            'item_methods' : ['GET', 'DELETE'],
             }
         
     @staticmethod
@@ -33,34 +35,43 @@ class ResultConfiguration(object):
                 'schema' : {
                     'firstName': {
                         'type':'string',
-                        'minlength':1
+                        'minlength':1,
                     },
                     'lastName': {
                         'type':'string',
-                        'minlength':1
+                        'minlength':1,
+                        'required': True,
                     }
-                }
+                },
             },
             'test': {
                 'type':'objectid',
                 'data_relation':{
-                    'resource':'test'
+                    'resource':'survey'
                 },
-                'required': True   
+                'required': True,
             },
             'result': {
                 'type':'list',
                 'schema':{
-                    'type':'dict',
-                    'schema': {
-                        'questionId': {
-                            'type':'integer',
-                            'required':True
-                        },
-                        'responses': {
-                            'type':'list'
-                        }
-                    }
-                }
+#                     'type':'dict',
+#                     'schema': {
+#                         'responses': {
+                            'type':'list',
+                            'schema':{
+                                'type':'dict',
+                                'schema': {
+                                    'response': {
+                                        'type':'integer',
+                                    },
+                                    'valid': {
+                                        'type': 'boolean'
+                                    },
+                                },
+                            },
+#                         }
+#                     }
+                },
+                'required': True,
             }
         }
