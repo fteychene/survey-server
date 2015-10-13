@@ -4,54 +4,46 @@ Created on Sep 21, 2015
 @author: fteychene
 '''
 
+
 class SurveyConfiguration(object):
-    
     @staticmethod
     def domain():
         return {
-            'schema' : SurveyConfiguration.schema(),
-            'datasource' : SurveyConfiguration.datasource(),
-            'item_methods' : ['GET', 'PATCH', 'PUT', 'DELETE'],
-            'resource_methods' : ['GET', 'POST']
-    }
-        
-    @staticmethod
-    def datasource():
-        return {
-                'projection': {'question.response.valid': 0}
-            }
+            'schema': SurveyConfiguration.schema(),
+            'datasource': {
+                'projection': {'question.response.valid': 0}},
+            'item_methods': ['GET', 'PATCH', 'PUT', 'DELETE'],
+            'resource_methods': ['GET', 'POST']
+        }
 
     @staticmethod
     def schema():
         return {
-            'name' : {
-                'type':'string',
-                'required':True,
-                'unique':True},
+            'name': {
+                'type': 'string',
+                'required': True,
+                'unique': True},
             'question': {
-                'type':'list',
-                'schema':{
+                'type': 'list',
+                'schema': {
                     'type': 'dict',
                     'schema': {
-                        'number' : {
-                            'type':'integer',
-                            'required':True},
                         'text': {
-                            'type':'string',
+                            'type': 'string',
                             'minlength': 1},
-                        'type':{
-                            'type':'string',
-                            'allowed':['One', 'Many']},
-                        'response': {
-                            'type':'list',
-                            'schema':{
+                        'type': {
+                            'type': 'string',
+                            'allowed': ['One', 'Many']},
+                        'responses': {
+                            'type': 'list',
+                            'schema': {
                                 'type': 'dict',
                                 'schema': {
-                                    'text':{
-                                        'type':'string',
+                                    'text': {
+                                        'type': 'string',
                                         'minlength': 1},
-                                    'valid':{
-                                        'type':'boolean'}
+                                    'valid': {
+                                        'type': 'boolean'}
                                 }
                             }
                         }

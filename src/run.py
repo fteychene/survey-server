@@ -16,17 +16,4 @@ def generateApp():
 app = generateApp()
 
 if __name__ == '__main__':
-    app.run()
-
-# def startEveApplication():
-#     filePath = './'+'settings.py'
-#     print('Loading configuration')
-#     app = Eve(settings = filePath)
-#     
-#     for register in HOOKS_REGISTERS:
-#         register(app)
-#     
-#     app.run()
-# 
-# if __name__ == '__main__':
-#     startEveApplication()
+    app.run(debug=True)
